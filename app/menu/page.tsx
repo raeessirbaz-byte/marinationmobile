@@ -79,27 +79,27 @@ export default function MenuPage() {
       : menuItems.filter((item) => item.category === activeCategory);
 
   return (
-    <main className="min-h-screen bg-bg-dark">
+    <main className="min-h-screen bg-white">
       <Header />
 
       {/* Menu Hero */}
-      <section className="relative pt-48 pb-20 bg-bg-charcoal overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full opacity-10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[300px] font-heading leading-none text-text-cream/5 select-none">
+      <section className="relative pt-48 pb-20 bg-gray-50 overflow-hidden border-b border-gray-200">
+        <div className="absolute top-0 left-0 w-full h-full opacity-5">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[300px] font-heading leading-none text-gray-900 select-none">
             ALOHA
           </div>
         </div>
 
-        <div className="container-wide relative z-10">
+        <div className="container-wide relative z-10 text-gray-900">
           <SectionTitle subtitle="EVERYDAY ALOHA" title="OUR MENU" centered />
-          <p className="text-text-beige text-center max-w-2xl mx-auto mt-8">
+          <p className="text-gray-600 text-center max-w-2xl mx-auto mt-8">
             Hand-crafted Hawaiian-Korean fusion inspired by the streets of Seattle. All our sauces and pickles are made from scratch daily.
           </p>
         </div>
       </section>
 
       {/* Category Filter */}
-      <section className="sticky top-[72px] z-40 bg-bg-dark/80 backdrop-blur-md border-y border-text-cream/5 py-4">
+      <section className="sticky top-[72px] z-40 bg-white/90 backdrop-blur-md border-y border-gray-200 py-4">
         <div className="container-wide">
           <div className="flex items-center justify-start md:justify-center gap-4 overflow-x-auto no-scrollbar pb-2 md:pb-0">
             {categories.map((cat) => (
@@ -108,8 +108,8 @@ export default function MenuPage() {
                 onClick={() => setActiveCategory(cat)}
                 className={`whitespace-nowrap px-6 py-2 rounded-full font-heading text-xs tracking-widest transition-all duration-300 ${
                   activeCategory === cat
-                    ? "bg-primary text-text-cream"
-                    : "bg-bg-charcoal border border-text-cream/10 text-text-beige hover:border-primary"
+                    ? "bg-primary text-gray-900"
+                    : "bg-white border border-gray-300 text-gray-700 hover:border-primary"
                 }`}
               >
                 {cat}
@@ -120,7 +120,7 @@ export default function MenuPage() {
       </section>
 
       {/* Menu Grid */}
-      <section className="section-padding bg-bg-dark">
+      <section className="section-padding bg-white">
         <div className="container-wide">
           {filteredItems.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
@@ -129,7 +129,7 @@ export default function MenuPage() {
               ))}
             </div>
           ) : (
-            <p className="text-center text-text-beige font-heading tracking-widest py-20">
+            <p className="text-center text-gray-500 font-heading tracking-widest py-20">
               NO ITEMS IN THIS CATEGORY YET.
             </p>
           )}
@@ -137,9 +137,9 @@ export default function MenuPage() {
       </section>
 
       {/* Specialty Banner */}
-      <section className="py-20 bg-primary/5 border-y border-primary/10">
+      <section className="py-20 bg-gray-50 border-y border-gray-200">
         <div className="container-wide">
-          <div className="glass-card flex flex-col md:flex-row items-center overflow-hidden border-primary/20">
+          <div className="bg-white border border-gray-200 rounded-2xl flex flex-col md:flex-row items-center overflow-hidden shadow-sm">
             <div className="w-full md:w-1/2 aspect-video relative">
               <Image
                 src="https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/1614717142435-0A3V8Z7X5W4O6H4B4Y4W/big-blue.jpg"
@@ -150,8 +150,8 @@ export default function MenuPage() {
             </div>
             <div className="w-full md:w-1/2 p-12 space-y-6">
               <span className="text-primary font-heading tracking-widest text-sm">EVENTS &amp; CATERING</span>
-              <h3 className="text-4xl text-text-cream">BRING THE ALOHA TO YOUR NEXT EVENT</h3>
-              <p className="text-text-beige text-sm leading-relaxed">
+              <h3 className="text-4xl text-gray-900">BRING THE ALOHA TO YOUR NEXT EVENT</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
                 From office lunches to wedding celebrations, we&apos;ll bring our food truck vibes or customized catering menus to you.
               </p>
               <Link href="/#catering" className="btn-primary mt-4 inline-block">INQUIRE NOW</Link>

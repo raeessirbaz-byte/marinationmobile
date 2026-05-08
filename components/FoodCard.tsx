@@ -20,7 +20,7 @@ export default function FoodCard({ name, description, price, image, badge }: Foo
   };
 
   return (
-    <div className="glass-card group h-full flex flex-col">
+    <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden transition-all duration-500 hover:border-primary/40 hover:translate-y-[-8px] group h-full flex flex-col shadow-sm">
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
           src={image}
@@ -38,15 +38,15 @@ export default function FoodCard({ name, description, price, image, badge }: Foo
 
       <div className="p-8 flex-grow flex flex-col">
         <div className="flex justify-between items-start mb-4">
-          <h3 className="text-2xl text-text-cream group-hover:text-primary transition-colors">{name}</h3>
+          <h3 className="text-2xl text-gray-900 group-hover:text-primary transition-colors">{name}</h3>
           <span className="text-xl text-primary font-heading">{price}</span>
         </div>
-        <p className="text-text-beige text-sm leading-relaxed mb-6 flex-grow">
+        <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
           {description}
         </p>
         <button
           onClick={handleAddToOrder}
-          className="flex items-center gap-2 text-text-cream font-heading text-sm tracking-widest group-hover:gap-4 transition-all"
+          className="flex items-center gap-2 text-gray-900 font-heading text-sm tracking-widest group-hover:gap-4 transition-all"
         >
           {added ? "ADDED!" : "ADD TO ORDER"}
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
