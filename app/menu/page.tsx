@@ -1,3 +1,8 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SectionTitle from "@/components/SectionTitle";
@@ -5,7 +10,8 @@ import FoodCard from "@/components/FoodCard";
 
 export default function MenuPage() {
   const categories = ["ALL", "TACOS", "SLIDERS", "PLATES", "KIMCHI FRIED RICE", "SIDES", "DRINKS"];
-  
+  const [activeCategory, setActiveCategory] = useState("ALL");
+
   const menuItems = [
     {
       name: "TACO 2-PACK",
@@ -27,7 +33,7 @@ export default function MenuPage() {
       description: "Kimchi, bacon, spam, and a sunny-side-up egg. Bold and spicy.",
       price: "$14.50",
       image: "https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/1698444333015-7RNGSDJUYPHJEAGDATNX/TocinoBowl_MarinationCC_SEA_NateWatters-1611.jpg",
-      badge: "SIGNATURE"
+      badge: "SIGNATURE",
     },
     {
       name: "LU'AU PLATE",
@@ -63,28 +69,29 @@ export default function MenuPage() {
       description: "Beef patty, kimchi, cheddar, pickled jalapeños, and secret sauce on a brioche bun.",
       price: "$15.50",
       image: "https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/d2e188c1-bfec-490d-9ee3-d4ea597c8d77/pork+katsu+burger+ma+kai",
-      badge: "COLUMBIA CITY FAVORITE"
-    }
+      badge: "COLUMBIA CITY FAVORITE",
+    },
   ];
+
+  const filteredItems =
+    activeCategory === "ALL"
+      ? menuItems
+      : menuItems.filter((item) => item.category === activeCategory);
 
   return (
     <main className="min-h-screen bg-bg-dark">
       <Header />
-      
+
       {/* Menu Hero */}
       <section className="relative pt-48 pb-20 bg-bg-charcoal overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-10">
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[300px] font-heading leading-none text-text-cream/5 select-none">
-             ALOHA
-           </div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[300px] font-heading leading-none text-text-cream/5 select-none">
+            ALOHA
+          </div>
         </div>
-        
+
         <div className="container-wide relative z-10">
-          <SectionTitle 
-            subtitle="EVERYDAY ALOHA" 
-            title="OUR MENU" 
-            centered 
-          />
+          <SectionTitle subtitle="EVERYDAY ALOHA" title="OUR MENU" centered />
           <p className="text-text-beige text-center max-w-2xl mx-auto mt-8">
             Hand-crafted Hawaiian-Korean fusion inspired by the streets of Seattle. All our sauces and pickles are made from scratch daily.
           </p>
@@ -96,12 +103,13 @@ export default function MenuPage() {
         <div className="container-wide">
           <div className="flex items-center justify-start md:justify-center gap-4 overflow-x-auto no-scrollbar pb-2 md:pb-0">
             {categories.map((cat) => (
-              <button 
+              <button
                 key={cat}
+                onClick={() => setActiveCategory(cat)}
                 className={`whitespace-nowrap px-6 py-2 rounded-full font-heading text-xs tracking-widest transition-all duration-300 ${
-                  cat === "ALL" 
-                  ? "bg-primary text-text-cream" 
-                  : "bg-bg-charcoal border border-text-cream/10 text-text-beige hover:border-primary"
+                  activeCategory === cat
+                    ? "bg-primary text-text-cream"
+                    : "bg-bg-charcoal border border-text-cream/10 text-text-beige hover:border-primary"
                 }`}
               >
                 {cat}
@@ -114,11 +122,17 @@ export default function MenuPage() {
       {/* Menu Grid */}
       <section className="section-padding bg-bg-dark">
         <div className="container-wide">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-            {menuItems.map((item, i) => (
-              <FoodCard key={i} {...item} />
-            ))}
-          </div>
+          {filteredItems.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+              {filteredItems.map((item, i) => (
+                <FoodCard key={i} {...item} />
+              ))}
+            </div>
+          ) : (
+            <p className="text-center text-text-beige font-heading tracking-widest py-20">
+              NO ITEMS IN THIS CATEGORY YET.
+            </p>
+          )}
         </div>
       </section>
 
@@ -127,19 +141,20 @@ export default function MenuPage() {
         <div className="container-wide">
           <div className="glass-card flex flex-col md:flex-row items-center overflow-hidden border-primary/20">
             <div className="w-full md:w-1/2 aspect-video relative">
-              <img 
-                src="https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/1614717142435-0A3V8Z7X5W4O6H4B4Y4W/big-blue.jpg" 
-                alt="Marination Catering" 
-                className="w-full h-full object-cover"
+              <Image
+                src="https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/1614717142435-0A3V8Z7X5W4O6H4B4Y4W/big-blue.jpg"
+                alt="Marination Catering"
+                fill
+                className="object-cover"
               />
             </div>
             <div className="w-full md:w-1/2 p-12 space-y-6">
-              <span className="text-primary font-heading tracking-widest text-sm">EVENTS & CATERING</span>
+              <span className="text-primary font-heading tracking-widest text-sm">EVENTS &amp; CATERING</span>
               <h3 className="text-4xl text-text-cream">BRING THE ALOHA TO YOUR NEXT EVENT</h3>
               <p className="text-text-beige text-sm leading-relaxed">
-                From office lunches to wedding celebrations, we'll bring our food truck vibes or customized catering menus to you.
+                From office lunches to wedding celebrations, we&apos;ll bring our food truck vibes or customized catering menus to you.
               </p>
-              <button className="btn-primary mt-4">INQUIRE NOW</button>
+              <Link href="/#catering" className="btn-primary mt-4 inline-block">INQUIRE NOW</Link>
             </div>
           </div>
         </div>

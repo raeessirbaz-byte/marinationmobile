@@ -1,6 +1,19 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubscribe = () => {
+    if (email.trim()) {
+      setSubscribed(true);
+      setEmail("");
+    }
+  };
+
   return (
     <footer className="bg-bg-charcoal border-t border-text-cream/5 pt-20 pb-10">
       <div className="container-wide">
@@ -10,10 +23,9 @@ export default function Footer() {
               MARINATION
             </Link>
             <p className="text-text-beige text-sm leading-relaxed max-w-xs">
-              Seattle's sauciest food truck turned brick-and-mortar serving up Everyday Aloha since 2009. Hawaiian-Korean cuisine that melts in your mouth.
+              Seattle&apos;s sauciest food truck turned brick-and-mortar serving up Everyday Aloha since 2009. Hawaiian-Korean cuisine that melts in your mouth.
             </p>
             <div className="flex gap-4">
-              {/* Social icons placeholders */}
               <div className="w-10 h-10 rounded-full bg-bg-dark border border-text-cream/10 flex items-center justify-center hover:border-primary transition-colors cursor-pointer text-text-cream">
                 IG
               </div>
@@ -29,21 +41,11 @@ export default function Footer() {
           <div>
             <h4 className="text-lg mb-6 text-text-cream font-heading tracking-widest">QUICK LINKS</h4>
             <ul className="space-y-4">
-              <li>
-                <Link href="/" className="text-text-beige hover:text-primary transition-colors text-sm">HOME</Link>
-              </li>
-              <li>
-                <Link href="/menu" className="text-text-beige hover:text-primary transition-colors text-sm">OUR MENU</Link>
-              </li>
-              <li>
-                <Link href="/#catering" className="text-text-beige hover:text-primary transition-colors text-sm">CATERING</Link>
-              </li>
-              <li>
-                <Link href="/#locations" className="text-text-beige hover:text-primary transition-colors text-sm">LOCATIONS</Link>
-              </li>
-              <li>
-                <Link href="/#about" className="text-text-beige hover:text-primary transition-colors text-sm">OUR STORY</Link>
-              </li>
+              <li><Link href="/" className="text-text-beige hover:text-primary transition-colors text-sm">HOME</Link></li>
+              <li><Link href="/menu" className="text-text-beige hover:text-primary transition-colors text-sm">OUR MENU</Link></li>
+              <li><Link href="/#catering" className="text-text-beige hover:text-primary transition-colors text-sm">CATERING</Link></li>
+              <li><Link href="/#locations" className="text-text-beige hover:text-primary transition-colors text-sm">LOCATIONS</Link></li>
+              <li><Link href="/#about" className="text-text-beige hover:text-primary transition-colors text-sm">OUR STORY</Link></li>
             </ul>
           </div>
 
@@ -59,7 +61,7 @@ export default function Footer() {
                 <p>1660 Harbor Ave SW, Seattle</p>
               </li>
               <li>
-                <p className="text-text-cream font-medium">6TH & VIRGINIA (DOWNTOWN)</p>
+                <p className="text-text-cream font-medium">6TH &amp; VIRGINIA (DOWNTOWN)</p>
                 <p>2000 6th Ave, Seattle</p>
               </li>
             </ul>
@@ -67,19 +69,31 @@ export default function Footer() {
 
           <div>
             <h4 className="text-lg mb-6 text-text-cream font-heading tracking-widest">NEWSLETTER</h4>
-            <p className="text-text-beige text-sm mb-4">Subscribe to get the latest updates and "Everyday Aloha".</p>
-            <div className="flex gap-2">
-              <input 
-                type="email" 
-                placeholder="Email Address" 
-                className="bg-bg-dark border border-text-cream/10 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-primary flex-grow"
-              />
-              <button className="bg-primary p-2 rounded-full text-text-cream hover:bg-accent-red transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
-              </button>
-            </div>
+            <p className="text-text-beige text-sm mb-4">
+              Subscribe to get the latest updates and &quot;Everyday Aloha&quot;.
+            </p>
+            {subscribed ? (
+              <p className="text-primary font-heading text-sm tracking-widest">MAHALO! YOU&apos;RE IN.</p>
+            ) : (
+              <div className="flex gap-2">
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
+                  className="bg-bg-dark border border-text-cream/10 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-primary flex-grow"
+                />
+                <button
+                  onClick={handleSubscribe}
+                  className="bg-primary p-2 rounded-full text-text-cream hover:bg-accent-red transition-colors"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </button>
+              </div>
+            )}
           </div>
         </div>
 

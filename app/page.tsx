@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import FoodCard from "@/components/FoodCard";
@@ -5,7 +7,6 @@ import StorySection from "@/components/StorySection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import SectionTitle from "@/components/SectionTitle";
-import Link from "next/link";
 
 export default function Home() {
   const highlights = [
@@ -79,10 +80,11 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             <div className="glass-card flex flex-col group">
               <div className="relative aspect-video overflow-hidden">
-                <img 
-                  src="https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/2698e70f-c483-4a38-8faa-28ba6053603c/DSC03878.jpg" 
+                <Image
+                  src="https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/2698e70f-c483-4a38-8faa-28ba6053603c/DSC03878.jpg"
                   alt="Columbia City"
-                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
               <div className="p-10 text-center">
@@ -97,10 +99,11 @@ export default function Home() {
             
             <div className="glass-card flex flex-col border-primary/20 group scale-105 z-10 bg-bg-charcoal shadow-2xl">
               <div className="relative aspect-video overflow-hidden">
-                <img 
-                  src="https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/a39c5af4-1301-4bb9-9076-707faaab1535/Exterior+2+%281%29.JPG" 
+                <Image
+                  src="https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/a39c5af4-1301-4bb9-9076-707faaab1535/Exterior+2+%281%29.JPG"
                   alt="Ma Kai"
-                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
               <div className="p-10 text-center">
@@ -115,10 +118,11 @@ export default function Home() {
 
             <div className="glass-card flex flex-col group">
               <div className="relative aspect-video overflow-hidden">
-                <img 
-                  src="https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/7bd829b4-74bc-457f-aba5-07f177ab6281/DSC03791.jpg" 
+                <Image
+                  src="https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/7bd829b4-74bc-457f-aba5-07f177ab6281/DSC03791.jpg"
                   alt="Downtown"
-                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
               <div className="p-10 text-center">

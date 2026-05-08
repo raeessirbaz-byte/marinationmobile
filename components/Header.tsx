@@ -3,13 +3,20 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
+const navLinks = [
+  { href: "/", label: "HOME" },
+  { href: "/menu", label: "MENU" },
+  { href: "/#catering", label: "CATERING" },
+  { href: "/#locations", label: "LOCATIONS" },
+  { href: "/#about", label: "ABOUT" },
+];
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -30,61 +37,56 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
-          <Link
-            href="/"
-            className="text-sm font-heading tracking-widest hover:text-primary transition-colors"
-          >
-            HOME
-          </Link>
-          <Link
-            href="/menu"
-            className="text-sm font-heading tracking-widest hover:text-primary transition-colors"
-          >
-            MENU
-          </Link>
-          <Link
-            href="/#catering"
-            className="text-sm font-heading tracking-widest hover:text-primary transition-colors"
-          >
-            CATERING
-          </Link>
-          <Link
-            href="/#locations"
-            className="text-sm font-heading tracking-widest hover:text-primary transition-colors"
-          >
-            LOCATIONS
-          </Link>
-          <Link
-            href="/#about"
-            className="text-sm font-heading tracking-widest hover:text-primary transition-colors"
-          >
-            ABOUT
-          </Link>
+          {navLinks.map(({ href, label }) => (
+            <Link
+              key={label}
+              href={href}
+              className="text-sm font-heading tracking-widest hover:text-primary transition-colors"
+            >
+              {label}
+            </Link>
+          ))}
         </nav>
 
         <div className="flex items-center gap-4">
           <Link href="/menu" className="btn-primary py-2 px-6 text-xs">
             ORDER ONLINE
           </Link>
-          
-          <button className="md:hidden text-text-cream">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
+
+          <button
+            className="md:hidden text-text-cream"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            )}
           </button>
         </div>
       </div>
+
+      {isMenuOpen && (
+        <div className="md:hidden bg-bg-dark/95 backdrop-blur-md border-t border-text-cream/10">
+          <nav className="container-wide py-6 flex flex-col gap-4">
+            {navLinks.map(({ href, label }) => (
+              <Link
+                key={label}
+                href={href}
+                className="text-sm font-heading tracking-widest hover:text-primary transition-colors py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

@@ -13,10 +13,10 @@ export default function StorySection() {
             />
             <div className="space-y-6 text-text-beige leading-relaxed text-lg">
               <p>
-                In 2009, Kamala and Roz hit the streets of Seattle with a single food truck called "Big Blue". Their mission was simple: serve up the bold, spicy flavors of Hawaiian-Korean fusion with a side of Everyday Aloha.
+                In 2009, Kamala and Roz hit the streets of Seattle with a single food truck called &quot;Big Blue&quot;. Their mission was simple: serve up the bold, spicy flavors of Hawaiian-Korean fusion with a side of Everyday Aloha.
               </p>
               <p>
-                What started as a mobile kitchen quickly grew into a local obsession. From the shores of Alki to the heart of Columbia City, we've remained true to our roots—melting delicate heat and the flavors of aloha together in your mouth.
+                What started as a mobile kitchen quickly grew into a local obsession. From the shores of Alki to the heart of Columbia City, we&apos;ve remained true to our roots—melting delicate heat and the flavors of aloha together in your mouth.
               </p>
               <p className="font-heading text-primary text-xl tracking-wider">
                 WE BELIEVE IN GOOD FOOD, GOOD PEOPLE, AND GOOD VIBES.
