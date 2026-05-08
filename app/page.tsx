@@ -47,12 +47,12 @@ export default function Home() {
       />
 
       {/* Highlights Section */}
-      <section className="section-padding bg-bg-charcoal">
+      <section className="section-padding bg-white text-gray-900">
         <div className="container-wide">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-            <SectionTitle 
-              subtitle="SIGNATURE MENU" 
-              title="MOST LOVED DISHES" 
+            <SectionTitle
+              subtitle="SIGNATURE MENU"
+              title="MOST LOVED DISHES"
             />
             <Link href="/menu" className="text-primary font-heading tracking-widest border-b border-primary pb-1 mb-2 hover:text-accent-red hover:border-accent-red transition-all">
               SEE FULL MENU
@@ -70,7 +70,7 @@ export default function Home() {
       <StorySection />
 
       {/* Locations Section */}
-      <section id="locations" className="section-padding bg-bg-dark border-t border-text-cream/5">
+      <section id="locations" className="section-padding bg-gray-50 border-t border-gray-200 text-gray-900">
         <div className="container-wide">
           <SectionTitle 
             subtitle="FIND US" 
@@ -78,7 +78,7 @@ export default function Home() {
             centered 
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-            <div className="glass-card flex flex-col group">
+            <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden transition-all duration-500 hover:border-primary/40 hover:translate-y-[-8px] flex flex-col group">
               <div className="relative aspect-video overflow-hidden">
                 <Image
                   src="https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/2698e70f-c483-4a38-8faa-28ba6053603c/DSC03878.jpg"
@@ -88,8 +88,8 @@ export default function Home() {
                 />
               </div>
               <div className="p-10 text-center">
-                <h3 className="text-3xl mb-6 text-text-cream group-hover:text-primary transition-colors">COLUMBIA CITY</h3>
-                <div className="space-y-4 text-text-beige text-sm mb-8">
+                <h3 className="text-3xl mb-6 text-gray-900 group-hover:text-primary transition-colors">COLUMBIA CITY</h3>
+                <div className="space-y-4 text-gray-600 text-sm mb-8">
                   <p>3714 S Hudson St<br />Seattle, WA 98118</p>
                   <p>Mon - Sun: 11am - 9pm</p>
                 </div>
@@ -97,7 +97,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="glass-card flex flex-col border-primary/20 group scale-105 z-10 bg-bg-charcoal shadow-2xl">
+            <div className="bg-white border border-primary/40 rounded-2xl overflow-hidden transition-all duration-500 hover:translate-y-[-8px] flex flex-col border-primary/20 group scale-105 z-10 shadow-2xl">
               <div className="relative aspect-video overflow-hidden">
                 <Image
                   src="https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/a39c5af4-1301-4bb9-9076-707faaab1535/Exterior+2+%281%29.JPG"
@@ -107,8 +107,8 @@ export default function Home() {
                 />
               </div>
               <div className="p-10 text-center">
-                <h3 className="text-3xl mb-6 text-text-cream group-hover:text-primary transition-colors">MA KAI (WEST SEATTLE)</h3>
-                <div className="space-y-4 text-text-beige text-sm mb-8">
+                <h3 className="text-3xl mb-6 text-gray-900 group-hover:text-primary transition-colors">MA KAI (WEST SEATTLE)</h3>
+                <div className="space-y-4 text-gray-600 text-sm mb-8">
                   <p>1660 Harbor Ave SW<br />Seattle, WA 98126</p>
                   <p>Mon - Sun: 9am - 9pm<br />(Brunch Sat-Sun 9-2)</p>
                 </div>
@@ -116,7 +116,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="glass-card flex flex-col group">
+            <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden transition-all duration-500 hover:border-primary/40 hover:translate-y-[-8px] flex flex-col group">
               <div className="relative aspect-video overflow-hidden">
                 <Image
                   src="https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/7bd829b4-74bc-457f-aba5-07f177ab6281/DSC03791.jpg"
@@ -126,8 +126,8 @@ export default function Home() {
                 />
               </div>
               <div className="p-10 text-center">
-                <h3 className="text-3xl mb-6 text-text-cream group-hover:text-primary transition-colors">6TH & VIRGINIA</h3>
-                <div className="space-y-4 text-text-beige text-sm mb-8">
+                <h3 className="text-3xl mb-6 text-gray-900 group-hover:text-primary transition-colors">6TH & VIRGINIA</h3>
+                <div className="space-y-4 text-gray-600 text-sm mb-8">
                   <p>2000 6th Ave<br />Seattle, WA 98121</p>
                   <p>Mon - Fri: 11am - 8pm</p>
                 </div>

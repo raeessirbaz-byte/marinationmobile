@@ -12,7 +12,7 @@ export default function SectionTitle({ title, subtitle, centered = false }: Sect
           {subtitle}
         </span>
       )}
-      <h2 className="text-4xl md:text-5xl lg:text-6xl text-text-cream leading-none">
+      <h2 className="text-4xl md:text-5xl lg:text-6xl text-current leading-none">
         {title}
       </h2>
       <div className={`h-1 w-20 bg-primary mt-6 ${centered ? "mx-auto" : ""}`} />
