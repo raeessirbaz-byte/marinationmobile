@@ -31,7 +31,7 @@ export default function Header() {
     >
       <div className="container-wide flex items-center justify-between drop-shadow-md">
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-2xl font-heading tracking-tighter text-primary">
+          <span className="text-3xl font-heading tracking-tighter text-primary">
             MARINATION
           </span>
         </Link>
@@ -41,7 +41,7 @@ export default function Header() {
             <Link
               key={label}
               href={href}
-              className="text-sm font-heading tracking-widest hover:text-primary transition-colors"
+              className="text-base font-heading tracking-widest hover:text-primary transition-colors"
             >
               {label}
             </Link>
@@ -49,7 +49,7 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Link href="/menu" className="btn-primary py-2 px-6 text-xs">
+          <Link href="/menu" className="btn-primary py-2 px-6 text-sm">
             ORDER ONLINE
           </Link>
 
