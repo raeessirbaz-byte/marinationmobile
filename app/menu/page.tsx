@@ -83,16 +83,22 @@ export default function MenuPage() {
       <Header />
 
       {/* Menu Hero */}
-      <section className="relative pt-48 pb-20 bg-gray-50 overflow-hidden border-b border-gray-200">
-        <div className="absolute top-0 left-0 w-full h-full opacity-5">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[300px] font-heading leading-none text-gray-900 select-none">
-            ALOHA
-          </div>
+      <section className="relative pt-48 pb-20 overflow-hidden border-b border-gray-200">
+        {/* Background image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/6908455c-f349-478b-b4e8-e612b4955807/Spread_MarinationCC_SEA_NateWatters-1678.jpg"
+            alt="Menu background"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-white/75" />
         </div>
 
         <div className="container-wide relative z-10 text-gray-900">
           <SectionTitle subtitle="EVERYDAY ALOHA" title="OUR MENU" centered />
-          <p className="text-gray-600 text-center max-w-2xl mx-auto mt-8">
+          <p className="text-gray-700 text-center max-w-2xl mx-auto mt-8">
             Hand-crafted Hawaiian-Korean fusion inspired by the streets of Seattle. All our sauces and pickles are made from scratch daily.
           </p>
         </div>
