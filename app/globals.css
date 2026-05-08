@@ -1,26 +1,74 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-bebas-neue), sans-serif;
+
+  --color-primary: #f5d442;
+  --color-accent-red: #f0523d;
+  --color-accent-gold: #f5d442;
+  --color-accent-green: #7A9B4A;
+  
+  --color-bg-dark: #111111;
+  --color-bg-charcoal: #1d1d1d;
+  --color-bg-brown: #222222;
+  
+  --color-text-cream: #ffffff;
+  --color-text-beige: #dddddd;
+
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  body {
+    @apply bg-bg-dark text-text-cream font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading uppercase tracking-wider;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container-wide {
+    @apply max-w-[1320px] mx-auto px-5 md:px-8 lg:px-16;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-text-cream font-heading px-8 py-3 rounded-full uppercase tracking-widest transition-all duration-300 hover:bg-accent-red hover:shadow-[0_0_20px_rgba(242,106,33,0.3)] active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply border border-text-cream text-text-cream font-heading px-8 py-3 rounded-full uppercase tracking-widest transition-all duration-300 hover:bg-text-cream hover:text-bg-dark active:scale-95;
+  }
+
+  .glass-card {
+    @apply bg-bg-charcoal border border-text-cream/10 rounded-2xl overflow-hidden transition-all duration-500 hover:border-primary/40 hover:translate-y-[-8px];
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1A1210;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F26A21;
 }
