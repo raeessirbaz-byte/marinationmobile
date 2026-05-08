@@ -32,7 +32,7 @@ export default function StorySection() {
           <div className="relative order-1 lg:order-2">
             <div className="relative aspect-square md:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/1614717142435-0A3V8Z7X5W4O6H4B4Y4W/big-blue.jpg"
+                src="https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/a39c5af4-1301-4bb9-9076-707faaab1535/Exterior+2+%281%29.JPG"
                 alt="Marination Big Blue Truck"
                 fill
                 className="object-cover"

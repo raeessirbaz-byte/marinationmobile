@@ -54,21 +54,21 @@ export default function MenuPage() {
       category: "SIDES",
       description: "Grilled spam, rice, and nori. The ultimate Hawaiian snack.",
       price: "$4.50",
-      image: "https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/1614717142435-0A3V8Z7X5W4O6H4B4Y4W/big-blue.jpg",
+      image: "https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/1698444224207-J59U2JEQ505V77W26879/ChickenAndWaffle_MarinationCC_SEA_NateWatters-1568.jpg",
     },
     {
       name: "MISO GINGER SALAD",
       category: "SIDES",
       description: "Mixed greens, cucumber, carrots, and our signature miso ginger dressing.",
       price: "$10.00",
-      image: "https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/7f302e3f-650e-4a60-a825-aa3123673ff1/Tots.JPG",
+      image: "https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/1698444302468-GTMI5UE1XE7PV3HWSTMI/PorkSandwich_MarinationCC_SEA_NateWatters-1665.jpg",
     },
     {
       name: "THE KIMCHEESE BURGER",
       category: "PLATES",
       description: "Beef patty, kimchi, cheddar, pickled jalapeños, and secret sauce on a brioche bun.",
       price: "$15.50",
-      image: "https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/d2e188c1-bfec-490d-9ee3-d4ea597c8d77/pork+katsu+burger+ma+kai",
+      image: "https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/6908455c-f349-478b-b4e8-e612b4955807/Spread_MarinationCC_SEA_NateWatters-1678.jpg",
       badge: "COLUMBIA CITY FAVORITE",
     },
   ];
@@ -148,7 +148,7 @@ export default function MenuPage() {
           <div className="bg-white border border-gray-200 rounded-2xl flex flex-col md:flex-row items-center overflow-hidden shadow-sm">
             <div className="w-full md:w-1/2 aspect-video relative">
               <Image
-                src="https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/1614717142435-0A3V8Z7X5W4O6H4B4Y4W/big-blue.jpg"
+                src="https://images.squarespace-cdn.com/content/v1/5495bcb6e4b027d892329413/1707582741757-9Q7CCYK4J6IJSQDJLMQ6/aloha-sliders.jpg"
                 alt="Marination Catering"
                 fill
                 className="object-cover"
