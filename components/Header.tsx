@@ -25,13 +25,13 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-bg-dark/90 backdrop-blur-md py-4 border-b border-text-cream/10"
+          ? "bg-white py-4 border-b border-gray-200 shadow-sm"
           : "bg-gradient-to-b from-black/80 via-black/30 to-transparent py-6"
       }`}
     >
       <div className="container-wide flex items-center justify-between drop-shadow-md">
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-3xl font-heading tracking-tighter text-primary">
+          <span className={`text-3xl font-heading tracking-tighter ${isScrolled ? "text-black" : "text-primary"}`}>
             MARINATION
           </span>
         </Link>
@@ -41,7 +41,7 @@ export default function Header() {
             <Link
               key={label}
               href={href}
-              className="text-base font-heading tracking-widest hover:text-primary transition-colors"
+              className={`text-base font-heading tracking-widest hover:text-primary transition-colors ${isScrolled ? "text-black" : "text-text-cream"}`}
             >
               {label}
             </Link>
@@ -54,7 +54,7 @@ export default function Header() {
           </Link>
 
           <button
-            className="md:hidden text-text-cream"
+            className={`md:hidden ${isScrolled ? "text-black" : "text-text-cream"}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -72,13 +72,13 @@ export default function Header() {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden bg-bg-dark/95 backdrop-blur-md border-t border-text-cream/10">
+        <div className="md:hidden bg-white border-t border-gray-200">
           <nav className="container-wide py-6 flex flex-col gap-4">
             {navLinks.map(({ href, label }) => (
               <Link
                 key={label}
                 href={href}
-                className="text-sm font-heading tracking-widest hover:text-primary transition-colors py-2"
+                className="text-sm font-heading tracking-widest text-black hover:text-primary transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {label}
